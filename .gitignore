@@ -9,6 +9,8 @@ frontend/node_modules/
 # environment variables
 .env
 
+.env.local
+
 # firebase keys
 firebaseServiceKey.json
 serviceAccountKey.json
