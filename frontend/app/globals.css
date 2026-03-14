@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   HEADER CENTERING FIX
+   ========================= */
+
+.siteHeader {
+  width: 100%;
+  background: #fff;
+  text-align: center;
+}
+
+/* Top bar */
+.topBar {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8px 20px;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 20px;
+}
+
+.topLinks {
+  display: flex;
+  gap: 8px;
+}
+
+.topLinks a {
+  text-decoration: none;
+  color: #6b1e23;
+}
+
+/* Welcome row */
+.welcomeRow {
+  padding: 6px 0 2px;
+  font-size: 25px;
+  color: #444;
+}
+
+/* Brand */
+.brandRow {
+  display: flex;
+  justify-content: center;
+  padding: 14px 0 8px;
+}
+
+.brandLogo {
+  font-family: "Playfair Display", serif;
+  font-size: 52px;
+  letter-spacing: 7px;
+  color: #6b1e23;
+  margin: 0;
+}
+
+/* Nav */
+.navBar {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  padding: 12px 0;
+}
+
+.navBar a {
+  text-decoration: none;
+  color: #6b1e23;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* Search */
+.searchBar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 0 28px;
+}
+
+.searchBar input {
+  width: 320px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.searchBar button {
+  padding: 10px 18px;
+  background: #6b1e23;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+/* =========================
+   MOBILE HEADER FIX (FINAL)
+   ========================= */
+@media (max-width: 768px) {
+
+  /* ---- TOP BAR CENTER FIX ---- */
+  .topBar {
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .topLinks {
+    justify-content: flex-start;        /* 🔥 center links */
+    width: 100%;
+    gap: 6px;
+  }
+
+  /* ---- WELCOME ---- */
+  .welcomeRow {
+    font-size: 15px;
+    padding: 6px 0;
+  }
+
+  /* ---- BRAND ---- */
+  .brandLogo {
+    font-size: 34px;                /* 🔥 smaller */
+    letter-spacing: 3px;
+  }
+
+  /* ---- NAV ---- */
+  .navBar {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 10px 12px;
+  }
+
+  .navBar a {
+    font-size: 13px;
+  }
+
+  /* ---- SEARCH (ONE LINE) ---- */
+  .searchBar {
+    flex-direction: row;            /* 🔥 FORCE single row */
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 12px 20px;
+  }
+
+  .searchBar input {
+    width: 65%;                     /* 🔥 controlled width */
+    max-width: 240px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .searchBar button {
+    width: auto;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}

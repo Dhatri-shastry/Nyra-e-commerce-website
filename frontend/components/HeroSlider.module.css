@@ -1,0 +1,155 @@
+.wrapper {
+  position: relative;
+  background: #f6e9d7;
+  padding: 60px 40px 40px;
+  overflow: hidden;
+}
+
+/* Viewport */
+.viewport {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Sliding track */
+.track {
+  display: flex;
+  transition: transform 0.8s ease;
+}
+
+/* One page = 3 cards */
+.page {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px; /* Reduced from 20px → better breathing room */
+  min-width: 100%;
+  padding: 0 10px; /* Small side padding for cleaner look */
+}
+
+/* Card - REDUCED SIZE */
+.card {
+  position: relative;
+  aspect-ratio: 3 / 4; /* Keeps proportion */
+  border-radius: 20px; /* Slightly more rounded for elegance */
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Overlay Text (if you have any) - Optional */
+/* Uncomment if you add title overlay later
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+*/
+
+/* Arrows */
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  font-size: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.arrowLeft { left: 16px; }
+.arrowRight { right: 16px; }
+
+.arrowLeft:hover,
+.arrowRight:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Dots */
+.dots {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #fff;
+  width: 12px;
+  height: 12px;
+  transform: scale(1.2);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .page {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 50px 16px 30px;
+  }
+
+  .page {
+    grid-template-columns: 1fr; /* 1 card per view on mobile */
+    gap: 24px;
+  }
+
+  .card {
+    aspect-ratio: 4 / 5; /* Slightly taller on mobile */
+    border-radius: 16px;
+  }
+
+  .arrowLeft { left: 8px; }
+  .arrowRight { right: 8px; }
+
+  .arrowLeft,
+  .arrowRight {
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+  }
+
+  .dots {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    aspect-ratio: 3 / 4;
+  }
+}
